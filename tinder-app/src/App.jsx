@@ -31,7 +31,6 @@ function App() {
             <Route path="/products" element={<Products />} />
             <Route path="/safety" element={<Safety />} />
             <Route path="/support" element={<Support />} />
-
           </Routes>
           <Footer />
         </>
