@@ -4,7 +4,7 @@ import Navbar from './Navbar';
 const Home = () => {
     return (
 
-        <div className="h-screen h-screen bg-cover bg-center"
+        <div className="h-screen bg-cover bg-center"
             style={{
                 backgroundImage: `url("https://compote.slate.com/images/579937b9-999b-40ee-bb5f-1bcc0266eeb5.jpeg?crop=1560%2C1040%2Cx0%2Cy0&width=1200")`,
             }}>

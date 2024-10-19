@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
     return (
         <div>
-            <nav className="top-0 left-0 w-full p-4 flex justify-between items-center">
+            <nav className=" p-4 flex justify-between items-center">
                 <div className="container mx-auto flex justify-between items-center">
                     <div className="flex items-center">
                         <img src="https://cdn.iconscout.com/icon/free/png-512/free-tinder-logo-icon-download-in-svg-png-gif-file-formats--social-media-communication-network-pack-logos-icons-3201567.png?f=webp&w=256https://cdn.iconscout.com/icon/free/png-512/free-tinder-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-company-logos-pack-icons-6297329.png?f=webp&w=256https://cdn.iconscout.com/icon/free/png-512/free-tinder-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-company-logos-pack-icons-6297329.png?f=webp&w=256" className="h-10 w-10 mr-2" alt="tinder logo" />

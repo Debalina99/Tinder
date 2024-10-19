@@ -10,7 +10,8 @@ import Signup from './components/Signup';
 import Products from './components/Products';
 import Safety from './components/Safety';
 import Support from './components/Support';
-
+import PrivateRoute from './components/PrivateRoute';
+import Feed from './components/Feed';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
             <Route path="/products" element={<Products />} />
             <Route path="/safety" element={<Safety />} />
             <Route path="/support" element={<Support />} />
+            <Route path="/protected" element={<PrivateRoute><Feed/></PrivateRoute>} />
           </Routes>
           <Footer />
         </>
