@@ -20,7 +20,7 @@ const Signup = () => {
             const userdata = { name, email, password };
             const response= await signup(userdata);
             if(response.message==="User added successfully!"){
-            navigate('/');
+            navigate('/welcome');
             }
         } catch (err) {
             const errMessage=err.response?.data?.message || 'Error in signing up! ';

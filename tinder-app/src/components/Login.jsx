@@ -16,7 +16,7 @@ const Login = () => {
         try {
             const userData = { email, password };
             await login(userData);
-            navigate('/'); 
+            navigate('/feed'); 
         } catch (error) {
             setError(error.response?.data?.message || 'Invalid email or password');
         }

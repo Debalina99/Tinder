@@ -54,7 +54,7 @@ const userSchema = mongoose.Schema({
         default: "This is a default description about the user!",
         minLength: 4,
     },
-    skills: {
+    interests: {
         type: [String],
     }
 }, {

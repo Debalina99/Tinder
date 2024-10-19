@@ -4,10 +4,11 @@ const jwt = require("jsonwebtoken");
 
 const userAuth = async (req, res, next) => {
     try {
-        const { token } = req.cookies;
-        if (!token) {
-            throw new Error("Token is not valid!");
-        }
+        const token = req.header("Authorization").replace("Bearer ", "");
+
+    if (!token) {
+        return res.status(401).send({ error: "No token provided" });
+    }
         const decodeobj = await jwt.verify(token, "Deb@12");
         const { _id } = decodeobj;
 

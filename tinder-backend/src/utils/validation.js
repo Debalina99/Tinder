@@ -11,11 +11,12 @@ if(!name){
 }
 }
 const validateEditProfileData=(req)=>{
-    const allowedEditFields = ["name","email","photoUrl", "about", "gender", "age", "skills"];
+    const allowedEditFields = ["name","email","age", "gender", "photoUrl", "about","interests"];
         const isEditAllowed = Object.keys(req.body).every((k) =>
             allowedEditFields.includes(k)
         );
         return isEditAllowed;
+    
         
 }
 

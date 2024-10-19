@@ -12,7 +12,8 @@ import Safety from './components/Safety';
 import Support from './components/Support';
 import PrivateRoute from './components/PrivateRoute';
 import Feed from './components/Feed';
-
+import Welcome from './components/Welcome';
+import EditProfile from './components/EditProfile';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -32,7 +33,10 @@ function App() {
             <Route path="/products" element={<Products />} />
             <Route path="/safety" element={<Safety />} />
             <Route path="/support" element={<Support />} />
-            <Route path="/protected" element={<PrivateRoute><Feed/></PrivateRoute>} />
+            <Route path="/feed" element={<PrivateRoute><Feed/></PrivateRoute>} />
+            <Route path="/welcome" element={<PrivateRoute><Welcome/></PrivateRoute>} />
+            <Route path="/profile/edit" element={<PrivateRoute><EditProfile /></PrivateRoute>} />
+
           </Routes>
           <Footer />
         </>
