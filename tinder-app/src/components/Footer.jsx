@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: 'center'
     },
     logoCol: {
-        display: 'flex',
+        // display: 'flex',
         flexDirection: 'column'
     },
     footerLogo: {
@@ -94,7 +94,7 @@ const Footer = () => {
                     <Grid container spacing={3} className={classes.gridFooter}>
                         <Grid item xs={12} sm={5} md={3} className={classes.logoCol} >
                             <div className={classes.footerLogo} >
-                                <div className="flex items-center">
+                                <div className="flex items-center ">
                                     <img src="https://cdn.iconscout.com/icon/free/png-512/free-tinder-logo-icon-download-in-svg-png-gif-file-formats--social-media-communication-network-pack-logos-icons-3201567.png?f=webp&w=256https://cdn.iconscout.com/icon/free/png-512/free-tinder-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-company-logos-pack-icons-6297329.png?f=webp&w=256https://cdn.iconscout.com/icon/free/png-512/free-tinder-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-company-logos-pack-icons-6297329.png?f=webp&w=256" className="h-10 w-10 mr-2" />
                                     <Link to="/" className="text-white text-2xl font-bold">tinder</Link>
                                 </div>
