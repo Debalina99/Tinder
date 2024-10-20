@@ -341,7 +341,83 @@ const EditProfile = () => {
                             />
                             Coding
                         </label>
-                    </div>
+                        
+                </div>
+                <div className="flex justify-center gap-3">
+                        <label>
+                            <input
+                                type="checkbox"
+                                value="self-care"
+                                checked={profileData.interests.includes("self-care")}
+                                onChange={handleInterestsChange}
+                            />
+                            Tea
+                        </label>
+                        <label>
+                            <input
+                                type="checkbox"
+                                value="ludo"
+                                checked={profileData.interests.includes("ludo")}
+                                onChange={handleInterestsChange}
+                            />
+                            Coffee
+                        </label>
+                        <label>
+                            <input
+                                type="checkbox"
+                                value="gym"
+                                checked={profileData.interests.includes("gym")}
+                                onChange={handleInterestsChange}
+                            />
+                            DIY
+                        </label>
+                        <label>
+                            <input
+                                type="checkbox"
+                                value="running"
+                                checked={profileData.interests.includes("running")}
+                                onChange={handleInterestsChange}
+                            />
+                            Arts
+                        </label>
+                        <label>
+                            <input
+                                type="checkbox"
+                                value="walking"
+                                checked={profileData.interests.includes("walking")}
+                                onChange={handleInterestsChange}
+                            />
+                            Comedy
+                        </label>
+                        <label>
+                            <input
+                                type="checkbox"
+                                value="biryani"
+                                checked={profileData.interests.includes("biryani")}
+                                onChange={handleInterestsChange}
+                            />
+                            Cat lover
+                        </label>
+                        <label>
+                            <input
+                                type="checkbox"
+                                value="walking"
+                                checked={profileData.interests.includes("walking")}
+                                onChange={handleInterestsChange}
+                            />
+                            Dog lover
+                        </label>
+                        <label>
+                            <input
+                                type="checkbox"
+                                value="biryani"
+                                checked={profileData.interests.includes("biryani")}
+                                onChange={handleInterestsChange}
+                            />
+                            Movies
+                        </label>
+                        
+                </div>
                 <button type="submit" className="w-full p-2 my-5 bg-red-600 text-white rounded">Update Profile</button>
             </form>
         </div>
