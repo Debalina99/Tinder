@@ -33,7 +33,7 @@ requestRouter.post("/request/send/:status/:toUserId", userAuth, async (req, res)
             fromUserId, toUserId, status
         })
         const data = await connectionRequest.save();
-        res.json({ message: req.user.firstName + " is " + status + " in " + toUser.firstName  , data })
+        res.json({ message: req.user.name + " is " + status + " in " + toUser.name  , data })
     } catch (err) {
         res.status(400).send("Error: " + err.message);
     }
@@ -64,11 +64,5 @@ requestRouter.post("/request/review/:status/:requestId", userAuth, async (req, r
     }
 }
 )
-
-// requestRouter.post("/sendConnectionRequest", userAuth, async (req, res) => {
-//     const user = req.user;
-//     console.log("Sending a connecton request!");
-//     res.send(user.firstName + " Sent the Connection Request!")
-// })
 
 module.exports = requestRouter;

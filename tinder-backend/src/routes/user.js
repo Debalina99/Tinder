@@ -10,7 +10,7 @@ userRouter.get("/user/requests", userAuth, async (req, res) => {
         const loggedInUser = req.user;
         const connectionRequests = await ConnectionRequest.find({
             toUserId: loggedInUser._id, status: "Interested"
-        }).populate("fromUserId", ["firstName", "lastName", "age", "about"])
+        }).populate("fromUserId", ["name", "age", "about"])
 
 
         if (!connectionRequests) {
@@ -28,7 +28,7 @@ userRouter.get("/user/connections", userAuth, async (req, res) => {
         const loggedInUser = req.user;
         const connectionRequests = await ConnectionRequest.find({
             $or: [{ toUserId: loggedInUser._id, status: "Accepted" }, { fromUserId: loggedInUser._id, status: "Accepted" }],
-        }).populate("fromUserId", ["firstName", "lastName", "age", "about"]).populate("toUserId", ["firstName", "lastName", "age", "about"])
+        }).populate("fromUserId", ["name", "age", "about"]).populate("toUserId", ["name", "age", "about"])
 
         const data = connectionRequests.map((row) => {
             if (row.fromUserId._id.toString() === loggedInUser._id.toString()) {
@@ -59,22 +59,24 @@ userRouter.get("/feed", userAuth, async (req, res) => {
 
         const hidefronuserfeed = new Set();
         connectionRequests.forEach((req) => {
-            hidefronuserfeed.add(req.fromUserId.toString());
-            hidefronuserfeed.add(req.toUserId.toString());
-        })
+            if (req.fromUserId && req.toUserId) {
+                hidefronuserfeed.add(req.fromUserId.toString());
+                hidefronuserfeed.add(req.toUserId.toString());
+            } else {
+                console.log("Missing fromUserId or toUserId:", req);
+            }})
         // console.log(hidefronuserfeed);
 
         const users = await User.find({
             $and: [{ _id: { $nin: Array.from(hidefronuserfeed) } },
             { _id: { $ne: loggedInUser._id } }]
-        }).select("firstName lastName age about").skip(skip).limit(limit);
-
-
+        }).select("photoUrl name age about").skip(skip).limit(limit);
 
         res.send(users);
 
     } catch (err) {
-        res.status(400).json({ message: "Error: " + err.message })
+        console.error("Error fetching feed:", err); 
+        res.status(400).json({ message: "Error: " + err.message });
     }
 })
 
