@@ -6,7 +6,8 @@ const bcrypt = require("bcrypt")
 const userSchema = mongoose.Schema({
     name: {
         type: String,
-        required: true,
+        required: [true, 'Name is required!'],
+        minlength: [2, 'Name should have at least 2 characters'],
     },
     email: {
         type: String,
@@ -31,15 +32,16 @@ const userSchema = mongoose.Schema({
     },
     age: {
         type: Number,
-        min: 18,
+        min: [18, 'Age must be at least 18!'],
+        max: [100, 'Age must be less than 100!'],
     },
     gender: {
         type: String,
-        validate(value) {
-            if (!["male", "female", "others"].includes(value)) {
-                throw new Error("Gender data is not valid!")
-            }
-        }
+        enum: {
+            values: ['male', 'female', 'other'],
+            message: '{VALUE} is not supported as gender!'
+        },
+        default: 'other'
     },
     photoUrl: {
         type: String,
@@ -56,6 +58,7 @@ const userSchema = mongoose.Schema({
     },
     interests: {
         type: [String],
+        
     }
 }, {
     timestamps: true,

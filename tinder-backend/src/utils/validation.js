@@ -16,7 +16,6 @@ const validateEditProfileData=(req)=>{
             allowedEditFields.includes(k)
         );
         return isEditAllowed;
-    
         
 }
 

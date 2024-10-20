@@ -48,17 +48,18 @@ const editProfile = async (updatedData) => {
         throw new Error("Token is missing! Please login.");
     }
     try {
-        const response = await axios.patch(`${url}/profile/edit`, updatedData, {
+        const config = {
             headers: {
                 Authorization: `Bearer ${token}`,
+                ...(updatedData instanceof FormData ? {} : { 'Content-Type': 'application/json' }),
             },
-        });
-
+        };
+        const response = await axios.patch(`${url}/profile/edit`, updatedData, config);
         return response.data;
     } catch (error) {
         console.error("Error:", error.response?.data?.message || error.message);
-        throw new Error("Failed to update profile!")
+        throw new Error("Failed to update profile!");
     }
-}
+};
 
 export { signup, login, logout, viewProfile, editProfile };
