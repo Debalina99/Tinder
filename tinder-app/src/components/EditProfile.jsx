@@ -195,7 +195,7 @@ const EditProfile = () => {
                         <label>
                             <input
                                 type="checkbox"
-                                value="self-care"
+                                value="tea"
                                 checked={profileData.interests.includes("self-care")}
                                 onChange={handleInterestsChange}
                             />
@@ -204,7 +204,7 @@ const EditProfile = () => {
                         <label>
                             <input
                                 type="checkbox"
-                                value="ludo"
+                                value="coffee"
                                 checked={profileData.interests.includes("ludo")}
                                 onChange={handleInterestsChange}
                             />
@@ -213,7 +213,7 @@ const EditProfile = () => {
                         <label>
                             <input
                                 type="checkbox"
-                                value="gym"
+                                value="diy"
                                 checked={profileData.interests.includes("gym")}
                                 onChange={handleInterestsChange}
                             />
@@ -222,7 +222,7 @@ const EditProfile = () => {
                         <label>
                             <input
                                 type="checkbox"
-                                value="running"
+                                value="arts"
                                 checked={profileData.interests.includes("running")}
                                 onChange={handleInterestsChange}
                             />
@@ -231,7 +231,7 @@ const EditProfile = () => {
                         <label>
                             <input
                                 type="checkbox"
-                                value="walking"
+                                value="comedy"
                                 checked={profileData.interests.includes("walking")}
                                 onChange={handleInterestsChange}
                             />
@@ -240,7 +240,7 @@ const EditProfile = () => {
                         <label>
                             <input
                                 type="checkbox"
-                                value="biryani"
+                                value="cat-lover"
                                 checked={profileData.interests.includes("biryani")}
                                 onChange={handleInterestsChange}
                             />
@@ -249,7 +249,7 @@ const EditProfile = () => {
                         <label>
                             <input
                                 type="checkbox"
-                                value="walking"
+                                value="dog-lover"
                                 checked={profileData.interests.includes("walking")}
                                 onChange={handleInterestsChange}
                             />
@@ -258,7 +258,7 @@ const EditProfile = () => {
                         <label>
                             <input
                                 type="checkbox"
-                                value="biryani"
+                                value="movies"
                                 checked={profileData.interests.includes("biryani")}
                                 onChange={handleInterestsChange}
                             />
