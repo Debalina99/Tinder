@@ -93,43 +93,51 @@ const Feed = () => {
     }
 
     return (
-        <div>
-            <Link to="/profile/edit" className="text-gray-500 mx-1">Update profile</Link>
-            <div className='feed-container flex '>
+        <div className="min-h-screen bg-gradient-to-r from-red-400 to-orange-300 p-6">
+            <div className="flex justify-between items-center mb-6">
+            <Link to="/profile/edit" className="text-pink-600 hover:text-pink-800 font-semibold underline">
+                Update Profile
+            </Link>
+        </div>
+            <div className="feed-container grid grid-cols-2 gap-6">
                 {error && <p className="text-red-400 text-center">{error}</p>}
-
-                <div className='left-section'>
-                    <h2>Suggested Users</h2>
+                <div className="left-section bg-white shadow-lg rounded-lg p-6">
+                    <h2 className="text-2xl font-semibold text-gray-700 mb-4">Suggested Users</h2>
                     {feedUsers.map(user => (
-                        <div key={user._id} className="user-card">
-                            <img src={user.photoUrl} alt={`${user.name}'s profile`} />
-                            <p>{user.name}, {user.age}</p>
-                            <p>{user.about}</p>
-                            <button onClick={() => handleInterestedClick(user._id)}>Interested</button>
-                            <button onClick={() => handleIgnoredClick(user._id)}>Ignored</button>
+                        <div key={user._id} className="user-card bg-pink-100 shadow-md rounded-lg p-4 mb-4 flex flex-col items-center">
+                            <img src={user.photoUrl} alt={`${user.name}'s profile`} className="w-24 h-24 object-cover rounded-full mb-4 border-4 border-pink-500"/>
+                            <p className="text-lg font-bold text-gray-800">{user.name}, {user.age}</p>
+                            <p className="text-sm text-gray-600">{user.about}</p>
+                            <div className="mt-4 space-x-2">
+                            <button onClick={() => handleInterestedClick(user._id)} className="px-4 py-2 bg-green-500 text-white font-bold rounded-lg hover:bg-green-600">Interested</button>
+                            <button onClick={() => handleIgnoredClick(user._id)} className="px-4 py-2 bg-gray-400 text-white font-bold rounded-lg hover:bg-gray-500">Ignored</button>
+                        </div>
                         </div>
                     ))}
                 </div>
 
-                <div className='right-section'>
-                    <div className='flex flex-col'>
-                        <h2>Pending Requests</h2>
+                <div className='right-section col-span-1'>
+                    <div className='bg-white shadow-lg rounded-lg p-6 mb-6'>
+                        <h2 className="text-2xl font-semibold text-gray-700 mb-4">Pending Requests</h2>
                         {pendingRequests.map(request => (
-                            <div key={request._id} className="request-card">
-                                <p>{request.fromUserId.name}</p>
-                                <button onClick={() => handleAcceptClick(request._id)}>Accept</button>
-                                <button onClick={() => handleRejectClick(request._id)}>Reject</button>
+                            <div key={request._id} className="request-card bg-purple-100 shadow-md rounded-lg p-4 mb-4 flex justify-between items-center">
+                                <p className="text-lg font-bold text-gray-800">{request.fromUserId.name}</p>
+                                <div className="space-x-2">
+                                <button onClick={() => handleAcceptClick(request._id)} className="px-4 py-2 bg-blue-500 text-white font-bold rounded-lg hover:bg-blue-600">Accept</button>
+                                <button onClick={() => handleRejectClick(request._id)} className="px-4 py-2 bg-red-500 text-white font-bold rounded-lg hover:bg-red-600">Reject</button>
+                            </div>
                             </div>
                         ))}
                     </div>
-                    <h2>Your Connections</h2>
+                    <div className="bg-white shadow-lg rounded-lg p-6">
+                    <h2 className="text-2xl font-semibold text-gray-700 mb-4">Your Connections</h2>
                     {connections.map(connection => (
-                        <div key={connection._id} className="connection-card">
-                            <p>{connection.name}, {connection.age}</p>
-                            <p>{connection.about}</p>
+                        <div key={connection._id} className="connection-card bg-blue-100 shadow-md rounded-lg p-4 mb-4">
+                            <p className="text-lg font-bold text-gray-800">{connection.name}, {connection.age}</p>
+                            <p className="text-sm text-gray-600">{connection.about}</p>
                         </div>
                     ))}
-
+                    </div>
                 </div>
             </div>
         </div>
