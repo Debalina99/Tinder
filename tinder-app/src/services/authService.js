@@ -5,7 +5,7 @@ const url = 'http://localhost:3000';
 const signup = async (userdata) => {
     const response = await axios.post(`${url}/signup`, userdata, {
         headers: {
-            'Content-Type': 'application/json',  // Make sure the content type is JSON
+            'Content-Type': 'application/json',  
         }
     });
     if (response.data.token) {
@@ -36,7 +36,7 @@ const viewProfile = async () => {
 
     const response = await axios.post(`${url}/profile/view`, {}, {
         headers: {
-            Authorization: `Bearer ${token}`, // Set token in Authorization header
+            Authorization: `Bearer ${token}`, 
         },
     });
     return response.data;
