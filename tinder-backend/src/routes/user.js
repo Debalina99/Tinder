@@ -70,7 +70,7 @@ userRouter.get("/feed", userAuth, async (req, res) => {
         const users = await User.find({
             $and: [{ _id: { $nin: Array.from(hidefronuserfeed) } },
             { _id: { $ne: loggedInUser._id } }]
-        }).select("photoUrl name age about").skip(skip).limit(limit);
+        }).select("photoUrl name age about gender interests").skip(skip).limit(limit);
 
         res.send(users);
 
