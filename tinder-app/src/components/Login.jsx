@@ -22,19 +22,30 @@ const Login = () => {
         }
     }
     return (
-        <div className=" h-screen bg-red-400">
-
-            <div className="flex items-center justify-center h-screen bg-red-400">
-                <form onSubmit={submitHandler} className="bg-white p-8 rounded shadow-md" style={{ width: "400px", height: "400px" }}>
-                    <h2 className="text-2xl mb-4 text-center">Login</h2>
-                    {error && <p className="text-red-500">{error}</p>}
-                    <input type="email" name="email" placeholder="Enter email" value={email} onChange={(e)=>setEmail(e.target.value)} className='block w-full p-2 border rounded mb-4' />
-                    <input type="password" name="password" placeholder="Enter password" value={password} onChange={(e)=>setPassword(e.target.value)} className='block w-full p-2 border rounded mb-4' />
-                    <button type="submit" className="w-full p-2 my-4 bg-red-600 text-white rounded-full text-lg font-bold transition duration-300 hover:bg-red-500">Login</button>
-                    <div className="flex"><p>Dont have an account? </p><Link to="/signup" className="text-gray-500 mx-1"> Create account </Link></div>
-                </form>
-            </div>
+        <div className="min-h-screen bg-gradient-to-r from-red-400 to-orange-300 flex items-center justify-center px-3">
+            <form 
+                onSubmit={submitHandler} 
+                className="bg-white p-8 rounded shadow-md w-full max-w-sm"
+            >
+                <h2 className="text-3xl mb-4 text-center md:text-4xl">Login</h2>
+                {error && <p className="text-red-500 mb-4">{error}</p>}
+                <input 
+                    type="email" name="email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} 
+                    className='block w-full p-3 border rounded mb-4 text-lg'
+                />
+                <input 
+                    type="password" name="password" placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)} 
+                    className='block w-full p-3 border rounded mb-4 text-lg'
+                />
+                <button 
+                    type="submit" className="w-full p-3 my-4 text-white rounded-full text-lg font-bold transition duration-300 bg-red-400 hover:bg-red-500">Login
+                </button>
+                <div className="flex justify-center">
+                    <p className="">Don't have an account? </p>
+                    <Link to="/signup" className="text-red-500 mx-1 font-semibold">Create account</Link>
+                </div>
+            </form>
         </div>
-    )
+    );
 }
 export default Login;

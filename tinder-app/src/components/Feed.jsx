@@ -16,6 +16,7 @@ const Feed = () => {
             try {
                 const users = await fetchFeedUsers();
                 setFeedUsers(users);
+                setCurrentIndex(0);
             } catch (err) {
                 setError("Failed to load users!");
                 console.error(err);
@@ -56,10 +57,11 @@ const Feed = () => {
     const handleInterestedClick = async (userId) => {
         try {
             await handleInterest(userId);
-            setFeedUsers(feedUsers.filter(user => user._id !== userId));
-            if (currentIndex < feedUsers.length -1) {
-                setCurrentIndex((prevIndex) => prevIndex + 1);
-              }
+            const updatedFeedUsers = feedUsers.filter(user => user._id !== userId);
+            setFeedUsers(updatedFeedUsers);
+            if (currentIndex >= updatedFeedUsers.length) {
+                setCurrentIndex(updatedFeedUsers.length - 1); 
+            }
         } catch (err) {
             setError("Failed to express interest!");
             console.error(err);
@@ -70,10 +72,11 @@ const Feed = () => {
     const handleIgnoredClick = async (userId) => {
         try {
             await handleIgnore(userId);
-            setFeedUsers(feedUsers.filter(user => user._id !== userId))
-            if (currentIndex < feedUsers.length - 1) {
-                setCurrentIndex((prevIndex) => prevIndex + 1);
-              }
+            const updatedFeedUsers = feedUsers.filter(user => user._id !== userId);
+            setFeedUsers(updatedFeedUsers);
+            if (currentIndex >= updatedFeedUsers.length) {
+                setCurrentIndex(updatedFeedUsers.length - 1); 
+            }
         } catch (err) {
             setError("Failed to express interest!");
             console.error(err);
@@ -101,8 +104,8 @@ const Feed = () => {
     }
 
     return (
-        <div className=" min-h-screen bg-gradient-to-r from-red-400 to-orange-300 p-6">
-            <div className="absolute top-4 right-4 group ">
+        <div className="min-h-screen bg-gradient-to-r from-red-400 to-orange-300 p-6">
+            <div className="absolute top-4 right-4 group">
                 <Link to="/profile/edit" className="text-gray-500 hover:text-pink-600">
                     {/* Icon */}
                     <svg
@@ -131,14 +134,14 @@ const Feed = () => {
                     Update Profile
                 </div>
             </div>
-            <div className="feed-container grid grid-cols-2 gap-6 mt-7">
+            <div className="feed-container grid grid-cols-1 sm:grid-cols-2 gap-6 mt-7">
                 {error && <p className="text-red-400 text-center">{error}</p>}
-                <div className="left-section bg-white shadow-lg rounded-lg px-9 py-5">
+                <div className="left-section bg-white shadow-lg rounded-lg px-4 py-5 sm:px-9 sm:py-5">
                     {feedUsers.length > 0 && currentIndex < feedUsers.length ? (
-                        <div className="flex items-start gap-8 items-center justify-center">
+                        <div className="flex flex-col sm:flex-row items-start gap-8 justify-center">
                             {/* User Card */}
-                            <div key={feedUsers[currentIndex]._id} className="user-card bg-pink-100 shadow-md rounded-lg p-4 mb-2 flex flex-col items-center h-96 w-64 transition transform duration-500 ease-in-out">
-                                <img src={feedUsers[currentIndex].photoUrl} alt={`${feedUsers[currentIndex].name}'s profile`} className="w-40 h-40 object-cover rounded-full mb-4 border-4 border-pink-500" />
+                            <div key={feedUsers[currentIndex]._id} className="user-card bg-pink-100 shadow-md rounded-lg p-4 mb-2 flex flex-col items-center h-96 w-full md:w-64 transition transform duration-500 ease-in-out">
+                                <img src={feedUsers[currentIndex].photoUrl} alt={`${feedUsers[currentIndex].name}'s profile`} className="w-32 h-32 sm:w-40 sm:h-40 object-cover rounded-full mb-4 border-4 border-pink-500" />
                                 <p className="text-lg font-bold text-gray-800">{feedUsers[currentIndex].name}, {feedUsers[currentIndex].age}</p>
                                 <p className="text-sm text-gray-600 text-center">{feedUsers[currentIndex].about}</p>
                                 <div className="mt-6 space-x-3 flex">
@@ -154,7 +157,7 @@ const Feed = () => {
                             </div>
 
                             {/* Gender and Interests Section */}
-                            <div className="details-section text-left">
+                            <div className="details-section text-left flex-1">
                                 <p className="text-lg font-semibold text-gray-800">Gender: {feedUsers[currentIndex].gender}</p>
                                 <div className="mt-4">
                                     <h3 className="text-lg font-semibold text-gray-800 mb-2">Interests:</h3>
@@ -191,7 +194,7 @@ const Feed = () => {
                     {/* </div> */}
                     <div className="bg-white shadow-lg rounded-lg p-6">
                         <h2 className="text-2xl font-semibold text-gray-700 mb-4">Your Connections</h2>
-                        <div className="max-h-72 overflow-y-auto">
+                        <div className="max-h-72 overflow-y-scroll scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
                             {connections.map(connection => (
                                 <div key={connection._id} className="connection-card bg-blue-100 shadow-md rounded-lg p-4 mb-4">
                                     <p className="text-lg font-bold text-gray-800">{connection.name}, {connection.age}</p>
