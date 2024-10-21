@@ -11,13 +11,13 @@ const Navbar = () => {
                     <div className="flex items-center ml-6">
                         <img src="https://cdn.iconscout.com/icon/free/png-512/free-tinder-logo-icon-download-in-svg-png-gif-file-formats--social-media-communication-network-pack-logos-icons-3201567.png?f=webp&w=256"
                             className="h-12 w-12 mr-2" alt="tinder logo" />
-                        <Link to="/" className="text-white text-4xl font-bold">tinder</Link>
+                        <Link to="/" className="text-red-400 text-4xl font-bold">tinder</Link>
                     </div>
                     <div className="hidden md:flex space-x-6">
-                        <Link to="/products" className="text-white px-3 font-bold">Products</Link>
-                        <Link to="/safety" className="text-white px-3 font-bold">Safety</Link>
-                        <Link to="/support" className="text-white px-3 font-bold">Support</Link>
-                        <Link to="/login" className="text-white px-3 font-bold">Login</Link>
+                        <Link to="/products" className="text-red-400 px-3 font-bold">Products</Link>
+                        <Link to="/safety" className="text-red-400 px-3 font-bold">Safety</Link>
+                        <Link to="/support" className="text-red-400 px-3 font-bold">Support</Link>
+                        <Link to="/login" className="text-red-400 px-3 font-bold">Login</Link>
                     </div>
 
                     <div className="flex md:hidden relative">
