@@ -6,10 +6,7 @@ const jwt = require("jsonwebtoken");
 app.use(express.json());
 app.use(cookieParser());
 const cors = require('cors');
-app.use(cors({
-    origin: 'https://tinder-murex.vercel.app',
-    credentials: true
-  }));
+app.use(cors());
 
 
 const authRouter=require("./routes/auth");

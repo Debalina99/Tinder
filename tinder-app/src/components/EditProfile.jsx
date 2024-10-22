@@ -83,7 +83,7 @@ const EditProfile = () => {
     };
 
     return (
-        <div className=" min-h-screen flex flex-col items-center justify-center  bg-gradient-to-r from-red-400 to-orange-300">
+        <div className=" min-h-screen p-6 flex flex-col items-center justify-center  bg-gradient-to-r from-red-400 to-orange-300">
             <p className='flex text-white items-center justify-center text-3xl font-bold italic mt-8'>Edit your profile</p>
     
             <form onSubmit={submitHandler} className="bg-white p-6 md:p-8 rounded shadow-md w-full max-w-xl mt-6">

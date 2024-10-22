@@ -14,6 +14,7 @@ import PrivateRoute from './components/PrivateRoute';
 import Feed from './components/Feed';
 import Welcome from './components/Welcome';
 import EditProfile from './components/EditProfile';
+import Logout from './components/Logout';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -36,7 +37,7 @@ function App() {
             <Route path="/feed" element={<PrivateRoute><Feed/></PrivateRoute>} />
             <Route path="/welcome" element={<PrivateRoute><Welcome/></PrivateRoute>} />
             <Route path="/profile/edit" element={<PrivateRoute><EditProfile /></PrivateRoute>} />
-
+            <Route path="/logout" element={<PrivateRoute><Logout /></PrivateRoute>} />
           </Routes>
           <Footer />
         </>

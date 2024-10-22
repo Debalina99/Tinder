@@ -129,7 +129,7 @@ const Footer = () => {
                                     Candor TechSpace Kolkata, GII, 2nd Floor, Action Area I, Newtown, Kolkata, 700156</p>
                                 <p>
                                     <Link className={classes.footerLink} to="/el:91-789-201-6370">+91 789-201-6370</Link><br />
-                                    <Link className={classes.footerLink} to="/mailto:hello@dreamjob.com">hello@dreamjob.com</Link>
+                                    <Link className={classes.footerLink} to="/mailto:hello@dreamjob.com">hello@tinder.com</Link>
                                 </p>
                             </address>
 

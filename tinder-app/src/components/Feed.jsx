@@ -60,7 +60,7 @@ const Feed = () => {
             const updatedFeedUsers = feedUsers.filter(user => user._id !== userId);
             setFeedUsers(updatedFeedUsers);
             if (currentIndex >= updatedFeedUsers.length) {
-                setCurrentIndex(updatedFeedUsers.length - 1); 
+                setCurrentIndex(updatedFeedUsers.length - 1);
             }
         } catch (err) {
             setError("Failed to express interest!");
@@ -75,7 +75,7 @@ const Feed = () => {
             const updatedFeedUsers = feedUsers.filter(user => user._id !== userId);
             setFeedUsers(updatedFeedUsers);
             if (currentIndex >= updatedFeedUsers.length) {
-                setCurrentIndex(updatedFeedUsers.length - 1); 
+                setCurrentIndex(updatedFeedUsers.length - 1);
             }
         } catch (err) {
             setError("Failed to express interest!");
@@ -105,35 +105,58 @@ const Feed = () => {
 
     return (
         <div className="min-h-screen bg-gradient-to-r from-red-400 to-orange-300 p-6">
-            <div className="absolute top-4 right-4 group">
-                <Link to="/profile/edit" className="text-gray-500 hover:text-pink-600">
-                    {/* Icon */}
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="currentColor"
-                        className="w-8 h-8 p-1 bg-pink-200 rounded-full hover:bg-pink-300 transition duration-200 ease-in-out"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M16.862 5.487l1.65 1.65-9.62 9.62-3.052.768a.75.75 0 01-.918-.918l.768-3.052 9.62-9.62z"
-                        />
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M19.125 3.375a2.121 2.121 0 113 3l-1.35 1.35a.25.25 0 01-.353 0l-1.65-1.65a.25.25 0 010-.353l1.35-1.35z"
-                        />
-                    </svg>
-                </Link>
+            <div className="absolute top-4 right-4 flex gap-4 items-center">
+                
+                <div className="relative group">
+                    <Link to="/profile/edit" className="text-gray-500 hover:text-pink-600">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke="currentColor"
+                            className="w-8 h-8 p-1 bg-pink-200 rounded-full hover:bg-pink-300 transition duration-200 ease-in-out"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M16.862 5.487l1.65 1.65-9.62 9.62-3.052.768a.75.75 0 01-.918-.918l.768-3.052 9.62-9.62z"
+                            />
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M19.125 3.375a2.121 2.121 0 113 3l-1.35 1.35a.25.25 0 01-.353 0l-1.65-1.65a.25.25 0 010-.353l1.35-1.35z"
+                            />
+                        </svg>
+                    </Link>
+                    <div className="absolute -left-6 bg-gray-400 text-white text-sm rounded-md opacity-0 group-hover:opacity-100 transition duration-300 px-2 py-1">
+                        Update Profile
+                    </div>
+                </div>
 
-                {/* Hover Text */}
-                <div className="absolute -left-6 right-0 bg-gray-400 text-white text-sm rounded-md px-1 opacity-0 group-hover:opacity-100 transition duration-300">
-                    Update Profile
+                <div className="relative group">
+                    <Link to="/logout" className="text-gray-500 hover:text-pink-600">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke="currentColor"
+                            className="w-8 h-8 p-1 bg-pink-200 rounded-full hover:bg-pink-300 transition duration-200 ease-in-out"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M15.75 9V5.25a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v13.5a2.25 2.25 0 002.25 2.25h6.75a2.25 2.25 0 002.25-2.25V15M10.5 12h8.25m0 0l-3-3m3 3l-3 3"
+                            />
+                        </svg>
+                    </Link>
+                    <div className="absolute -left-6 bg-gray-400 text-white text-sm rounded-md opacity-0 group-hover:opacity-100 transition duration-300 px-1 py-1">
+                        Log out
+                    </div>
                 </div>
             </div>
+
             <div className="feed-container grid grid-cols-1 sm:grid-cols-2 gap-6 mt-7">
                 {error && <p className="text-red-400 text-center">{error}</p>}
                 <div className="left-section bg-white shadow-lg rounded-lg px-4 py-5 sm:px-9 sm:py-5">
